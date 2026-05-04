@@ -1,0 +1,26 @@
+{
+  "name": "pagewise-ai-server",
+  "version": "2.0.0",
+  "description": "Backend proxy server for PageWise AI Chrome Extension — HNG Stage 4A",
+  "main": "api/summarize.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "vercel-dev": "vercel dev"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "summarizer",
+    "gemini",
+    "hng",
+    "stage4a"
+  ],
+  "license": "MIT"
+}
