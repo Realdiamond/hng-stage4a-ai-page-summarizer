@@ -21,7 +21,7 @@
 //   const API_ENDPOINT = "http://localhost:3000/api/summarize";
 //
 // PRODUCTION (deployed Vercel backend — confirmed live):
-const API_ENDPOINT = "https://hng-stage4a-ai-page-summarizer.vercel.app/api/summarize";
+const API_ENDPOINT = "https://hng-stage4a-ai-page-summarizer.vercel.app/api/summarize.js";
 
 // ── Service Worker Lifecycle ──────────────────────────────────
 chrome.runtime.onInstalled.addListener(({ reason }) => {
