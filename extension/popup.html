@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PageWise AI</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup-wrapper">
+
+      <!-- Header -->
+      <header class="popup-header">
+        <div class="logo-area">
+          <div class="logo-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-name">PageWise AI</span>
+            <span class="logo-badge">SMART READER</span>
+          </div>
+        </div>
+        <div class="status-dot" id="status-dot" title="Extension active"></div>
+      </header>
+
+      <!-- Tagline -->
+      <p class="tagline">AI-powered summaries for any webpage, instantly.</p>
+
+      <!-- URL Bar -->
+      <div class="url-bar" id="url-bar">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <span id="current-url" class="url-text">Loading current page…</span>
+      </div>
+
+      <!-- Button Row -->
+      <div class="btn-row">
+        <button class="btn-summarize" id="btn-summarize" disabled
+                aria-label="Summarize current page with AI">
+          <svg class="btn-icon" id="btn-icon" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+          <span class="btn-spinner" id="btn-spinner" aria-hidden="true" hidden></span>
+          <span id="btn-label">Summarize Page</span>
+        </button>
+
+        <button class="btn-clear" id="btn-clear" hidden
+                title="Clear results" aria-label="Clear results and reset">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Cache action row -->
+      <div class="cache-row">
+        <button class="btn-clear-cache" id="btn-clear-cache" hidden
+                aria-label="Delete cached summary for this page">
+          Clear cache
+        </button>
+      </div>
+
+      <!-- Output Area -->
+      <div class="output-area" id="output-area" role="region"
+           aria-label="Page summary output">
+
+        <!-- Placeholder state -->
+        <div class="output-placeholder" id="output-placeholder">
+          <div class="placeholder-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M7 8h10M7 12h10M7 16h6"/>
+            </svg>
+          </div>
+          <p class="placeholder-title">No summary yet</p>
+          <p class="placeholder-hint">Click <strong>Summarize Page</strong> to get started.</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="output-loading" id="output-loading" hidden role="status"
+             aria-live="polite" aria-label="Loading summary">
+          <div class="spinner-ring" aria-hidden="true"></div>
+          <p class="loading-phase" id="loading-phase">Loading…</p>
+        </div>
+
+        <!-- Result content (built by popup.js via DOM API) -->
+        <div class="output-content" id="output-content" hidden></div>
+
+        <!-- Error state -->
+        <div class="output-error" id="output-error" hidden role="alert"
+             aria-live="assertive">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <p id="error-message" class="error-message-text"></p>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="popup-footer">
+        <span>PageWise AI &mdash; Powered by OpenAI</span>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
